@@ -1,0 +1,45 @@
+[
+  {
+    "id": 45,
+    "name": "",
+    "items": [
+      {
+        "id": 1,
+        "name": "Home",
+        "href": "/",
+        "icon": ["HomeRoundedIcon", "HomeOutlinedIcon"]
+      },
+      {
+        "id": 2,
+        "name": "Notifications",
+        "href": "/notification",
+        "icon": ["NotificationsIcon", "NotificationsOutlinedIcon"]
+      },
+      {
+        "id": 3,
+        "name": "Articale",
+        "href": "/articale",
+        "icon": ["ArticleIcon", "ArticleOutlinedIcon"]
+      },
+      {
+        "id": 4,
+        "name": "Hot news",
+        "href": "/hot_news",
+        "icon": ["LocalFireDepartmentIcon", "LocalFireDepartmentOutlinedIcon"]
+      }
+    ]
+  },
+
+  {
+    "id": 4,
+    "name": "",
+    "items": [
+      {
+        "id": 5,
+        "name": "Draw",
+        "href": "/publish",
+        "icon": ["DrawIcon", "DrawOutlinedIcon"]
+      }
+    ]
+  }
+]

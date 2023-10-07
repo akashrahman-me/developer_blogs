@@ -1,6 +1,6 @@
-import "./globals.css";
-import Head from "next/head";
 import type {Metadata} from "next";
+import Layout from "@/components/global/Layout";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Developer Blogs",
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "A developer blogs for developers, who want to learn and share their knowledge.",
 };
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <head>
@@ -18,7 +18,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           type="image/x-icon"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Layout>{children}</Layout>
+      </body>
     </html>
   );
 }
+
+export default RootLayout;
