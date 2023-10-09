@@ -1,4 +1,7 @@
+"use client";
 import React from "react";
+import monoTheme from "@/theme/mono";
+import {ThemeProvider} from "@mui/material/styles";
 
 // @fontsource/roboto
 import "@fontsource/roboto/300.css";
@@ -13,7 +16,11 @@ interface LayoutProps {
 function Layout(props: LayoutProps) {
   const {children} = props;
 
-  return <div>{children}</div>;
+  return (
+    <ThemeProvider theme={monoTheme}>
+      <div>{children}</div>
+    </ThemeProvider>
+  );
 }
 
 export default Layout;
