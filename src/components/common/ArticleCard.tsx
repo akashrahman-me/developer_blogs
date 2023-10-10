@@ -6,11 +6,28 @@ import Chip from "@mui/material/Chip";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
+import Divider from "@mui/material/Divider";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import {textEllipsis} from "@/styles/globals";
 
-function ArticleCard() {
+interface ArticleCardProps {
+  meta: {
+    profile: string;
+    name: string;
+    date: string;
+  };
+  title: string;
+  description: string;
+  tags: string[];
+  thumbnail: string;
+  link: string;
+}
+
+function ArticleCard(props: ArticleCardProps) {
+  const {meta, title, description, tags, thumbnail, link} = props;
+
   return (
-    <div>
+    <div className="article-card">
       <Stack
         sx={{marginBottom: 1.5}}
         direction="row"
@@ -18,8 +35,8 @@ function ArticleCard() {
         alignItems="center"
       >
         <Stack direction="row" spacing={1.5} alignItems="center">
-          <Avatar sx={{width: 28, height: 28}} />
-          <Typography>Amira Daifi</Typography>
+          <Avatar src={meta.profile} sx={{width: 28, height: 28}} />
+          <Typography>{meta.name}</Typography>
         </Stack>
         <Box
           sx={{
@@ -30,36 +47,31 @@ function ArticleCard() {
           }}
         />
         <Typography variant="body2" color="gray">
-          Jan 16
+          {meta.date}
         </Typography>
       </Stack>
       <Stack direction="row" spacing={4}>
         <Stack spacing={3}>
           <Stack>
-            <Link href="/">
+            <Link href={link}>
               <Typography variant="h6" gutterBottom>
-                💻How I code for 8 hours without feeling tired.
+                {title}
               </Typography>
             </Link>
             <Typography
               sx={{
-                display: "-webkit-box",
+                ...textEllipsis,
                 WebkitLineClamp: 4,
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
               }}
             >
-              🔴 I have coded wrong my whole life. I thought it was okay to just
-              sit down at my desk, open my laptop, take a task from my To-Do
-              list, and code until I felt tired. But in reality, this style of
-              work always killed my productivity...
+              {description}
             </Typography>
           </Stack>
           <Stack direction="row" alignItems="center">
             <Stack direction="row" spacing={2} flexGrow={1}>
-              <Chip label="Coding" />
-              <Chip label="Work" />
+              {tags.map((tag) => (
+                <Chip key={tag} label={tag} />
+              ))}
             </Stack>
             <Stack>
               <IconButton>
@@ -68,19 +80,29 @@ function ArticleCard() {
             </Stack>
           </Stack>
         </Stack>
-        <Box
-          src="https://media.istockphoto.com/id/1130480436/photo/young-man-talking-on-the-phone-in-his-home-office.jpg?s=612x612&w=0&k=20&c=TvlGfaXVf73TccSnDd3UBviXv5hvsna9XZs0vzDIpQM="
-          alt=""
-          component="img"
-          sx={{
+        <Link
+          href={link}
+          style={{
             maxWidth: 136,
+            width: "100%",
             aspectRatio: 1 / 1,
-            height: 1,
-            objectFit: "cover",
-            borderRadius: 2,
+            height: "100%",
           }}
-        />
+        >
+          <Box
+            src={thumbnail}
+            alt=""
+            component="img"
+            sx={{
+              objectFit: "cover",
+              borderRadius: 2,
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </Link>
       </Stack>
+      <Divider sx={{marginY: 3}} />
     </div>
   );
 }

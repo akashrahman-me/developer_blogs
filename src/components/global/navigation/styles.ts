@@ -4,8 +4,9 @@ export const navbar = {
   flexDirection: "column",
   alignItems: "center",
   maxWidth: 100,
-  gap: 4,
-  paddingY: 5,
+  width: 1,
+  gap: 6,
+  paddingTop: 5,
 };
 
 export const wrapper = {

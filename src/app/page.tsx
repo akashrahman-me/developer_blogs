@@ -3,17 +3,14 @@
 import Navigation from "@/components/global/navigation/Navigation";
 import React, {useState} from "react";
 import Box from "@mui/material/Box";
-import Avatar from "@mui/material/Avatar";
-import Link from "next/link";
-import Chip from "@mui/material/Chip";
-import Typography from "@mui/material/Typography";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import IconButton from "@mui/material/IconButton";
-import Stack from "@mui/material/Stack";
-import Image from "next/image";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import ArticleCard from "@/components/common/ArticleCard";
+import Aside from "./home/aside/Aside";
+import SimpleBar from "simplebar-react";
+import "simplebar-react/dist/simplebar.min.css";
+import YouTopic from "./home/YouTopic";
+import RelevenUsers from "./home/RelevenUsers";
 
 const tabs = ["Following", "Recommended"];
 
@@ -26,50 +23,24 @@ function HomePage() {
 
   return (
     <div>
-      <Box sx={{display: "flex"}}>
-        <Box sx={{flex: `0 0 100px`, borderRight: 1, borderColor: "divider"}}>
-          <Navigation />
+      <Box sx={{display: "flex", maxWidth: 1200, marginX: "auto"}}>
+        <Box
+          sx={{
+            flex: `0 0 100px`,
+            borderRight: 1,
+            borderColor: "divider",
+            height: "100vh",
+            position: "sticky",
+            top: 0,
+          }}
+        >
+          <SimpleBar style={{maxHeight: "100vh"}}>
+            <Navigation />
+          </SimpleBar>
         </Box>
         <Box sx={{paddingY: 5, paddingX: 4}}>
-          <Box
-            aria-label="Topics"
-            sx={{
-              display: "flex",
-              gap: 3,
-              alignItems: "center",
-              marginBottom: 4,
-            }}
-          >
-            <Typography
-              variant="body2"
-              color="gray"
-              fontWeight="600"
-              textTransform="uppercase"
-            >
-              your topics
-            </Typography>
-            <Box sx={{display: "flex", gap: 2}}>
-              {["Gaming", "Android Development", "Freelancing"].map(
-                (_, index) => (
-                  <Chip key={index} label={_} />
-                )
-              )}
-            </Box>
-          </Box>
-          <Box
-            aria-label="User profiles"
-            sx={{display: "flex", gap: 3, marginBottom: 4}}
-          >
-            {[...Array(6)].map((_, index) => (
-              <Link href="/" key={index}>
-                <Avatar
-                  sx={{width: 64, height: 64}}
-                  src="/images/demo/image 4.png"
-                  alt=""
-                />
-              </Link>
-            ))}
-          </Box>
+          <YouTopic />
+          <RelevenUsers />
           <Box sx={{outline: 1}}>
             <Tabs
               value={activeTab}
@@ -83,10 +54,42 @@ function HomePage() {
             </Tabs>
             {activeTab === 0 && (
               <Box sx={{paddingY: 4}}>
-                <ArticleCard />
+                {[...Array(6)].map((_, index) => (
+                  <ArticleCard
+                    key={index}
+                    thumbnail="https://media.istockphoto.com/id/1130480436/photo/young-man-talking-on-the-phone-in-his-home-office.jpg?s=612x612&w=0&k=20&c=TvlGfaXVf73TccSnDd3UBviXv5hvsna9XZs0vzDIpQM="
+                    link="/"
+                    meta={{
+                      profile: "/images/demo/image 3.png",
+                      name: "Amira Daifi",
+                      date: "Jan 16",
+                    }}
+                    title="💻How I code for 8 hours without feeling tired."
+                    description="🔴 I have coded wrong my whole life. I thought it was
+                  okay to just sit down at my desk, open my laptop, take
+                  a task from my To-Do list, and code until I felt
+                  tired. But in reality, this style of work always
+                  killed my productivity"
+                    tags={["Coding", "Android"]}
+                  />
+                ))}
               </Box>
             )}
           </Box>
+        </Box>
+        <Box
+          sx={{
+            paddingX: 4,
+            height: "100vh",
+            position: "sticky",
+            top: 0,
+            borderLeft: 1,
+            borderColor: "divider",
+          }}
+        >
+          <SimpleBar style={{maxHeight: "100vh"}}>
+            <Aside />
+          </SimpleBar>
         </Box>
       </Box>
     </div>

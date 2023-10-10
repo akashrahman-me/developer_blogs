@@ -25,7 +25,7 @@ function Navigation() {
           <Pages />
         </Box>
       </Box>
-      <Box>
+      <Box sx={{paddingBottom: 5}}>
         <Link href="/profile">
           <Avatar src="/images/demo/image 3.png" />
         </Link>
