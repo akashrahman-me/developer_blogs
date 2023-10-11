@@ -21,6 +21,12 @@ const mono = createTheme({
         sizeLarge: {
           padding: "10px 28px",
         },
+        sizeMedium: {
+          padding: "6px 20px",
+        },
+        sizeSmall: {
+          padding: "4px 16px",
+        },
         root: {
           textTransform: "capitalize",
           boxShadow: "none",

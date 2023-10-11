@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Layout from "@/components/global/Layout";
-import ProfileCard from "./ProfileCard";
+import ProfileCard from "@/components/global/aside/ProfileCard";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";

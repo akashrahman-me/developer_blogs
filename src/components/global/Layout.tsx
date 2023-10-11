@@ -12,7 +12,7 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import Navigation from "./navigation/Navigation";
-import Aside from "@/app/home/aside/Aside";
+import Aside from "@/components/global/aside/Aside";
 
 interface LayoutProps {
   children?: React.ReactNode;
