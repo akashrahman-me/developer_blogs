@@ -10,7 +10,7 @@ import Divider from "@mui/material/Divider";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import {textEllipsis} from "@/styles/globals";
 
-interface ArticleCardProps {
+export interface ArticleCardProps {
   meta: {
     profile: string;
     name: string;
@@ -34,10 +34,12 @@ function ArticleCard(props: ArticleCardProps) {
         spacing={1}
         alignItems="center"
       >
-        <Stack direction="row" spacing={1.5} alignItems="center">
-          <Avatar src={meta.profile} sx={{width: 28, height: 28}} />
-          <Typography>{meta.name}</Typography>
-        </Stack>
+        <Link href="/">
+          <Stack direction="row" spacing={1.5} alignItems="center">
+            <Avatar src={meta.profile} sx={{width: 28, height: 28}} />
+            <Typography>{meta.name}</Typography>
+          </Stack>
+        </Link>
         <Box
           sx={{
             width: 4,
@@ -58,12 +60,7 @@ function ArticleCard(props: ArticleCardProps) {
                 {title}
               </Typography>
             </Link>
-            <Typography
-              sx={{
-                ...textEllipsis,
-                WebkitLineClamp: 4,
-              }}
-            >
+            <Typography sx={{...textEllipsis, WebkitLineClamp: 4}}>
               {description}
             </Typography>
           </Stack>

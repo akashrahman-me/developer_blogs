@@ -2,7 +2,7 @@
 import React from "react";
 import monoTheme from "@/theme/mono";
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
+import SimpleBar from "simplebar-react";
 
 import {ThemeProvider} from "@mui/material/styles";
 
@@ -27,11 +27,13 @@ function Layout(props: LayoutProps) {
   return (
     <ThemeProvider theme={monoTheme}>
       <div>
-        <Box sx={{display: "flex", maxWidth: 1200, marginX: "auto"}}>
-          <Navigation />
-          <Box sx={{paddingY: 5, paddingX: 4, flex: 1}}>{children}</Box>
-          <Aside>{aside}</Aside>
-        </Box>
+        <SimpleBar>
+          <Box sx={{display: "flex", maxWidth: 1200, marginX: "auto"}}>
+            <Navigation />
+            <Box sx={{paddingY: 5, paddingX: 4, flex: 1}}>{children}</Box>
+            <Aside>{aside}</Aside>
+          </Box>
+        </SimpleBar>
       </div>
     </ThemeProvider>
   );

@@ -4,6 +4,7 @@ const mono = createTheme({
   palette: {
     primary: {
       main: "#00A2DD",
+      contrastText: "#FFFFFF",
     },
   },
   components: {
@@ -12,6 +13,21 @@ const mono = createTheme({
         root: {
           textTransform: "capitalize",
           fontWeight: 500,
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        sizeLarge: {
+          padding: "10px 28px",
+        },
+        root: {
+          textTransform: "capitalize",
+          boxShadow: "none",
+          borderRadius: 999,
+          "&:hover": {
+            boxShadow: "none",
+          },
         },
       },
     },
