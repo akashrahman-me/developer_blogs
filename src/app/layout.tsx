@@ -1,6 +1,7 @@
 import type {Metadata} from "next";
 import Layout from "@/components/global/Layout";
 import "@/styles/globals.css";
+import "simplebar-react/dist/simplebar.min.css";
 
 export const metadata: Metadata = {
   title: "Developer Blogs",
@@ -18,9 +19,7 @@ function RootLayout({children}: {children: React.ReactNode}) {
           type="image/x-icon"
         />
       </head>
-      <body>
-        <Layout>{children}</Layout>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

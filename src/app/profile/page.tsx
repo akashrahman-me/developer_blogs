@@ -1,7 +1,10 @@
+"use client";
 import React from "react";
+import Layout from "@/components/global/Layout";
+import ProfileCard from "./ProfileCard";
 
 function ProfilePage() {
-  return <div>Its nothing here. Its just a placeholder page.</div>;
+  return <Layout aside={<ProfileCard />}></Layout>;
 }
 
 export default ProfilePage;
